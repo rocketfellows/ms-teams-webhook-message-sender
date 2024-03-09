@@ -67,4 +67,10 @@ class MessageTest extends TestCase
             ],
         ];
     }
+
+    private function assertActualMessageDataEqualsExpected(Message $actualMessage, array $expectedMessageData): void
+    {
+        $this->assertEquals($expectedMessageData['text'], $actualMessage->getText());
+        $this->assertEquals($expectedMessageData['title'], $actualMessage->getTitle());
+    }
 }
