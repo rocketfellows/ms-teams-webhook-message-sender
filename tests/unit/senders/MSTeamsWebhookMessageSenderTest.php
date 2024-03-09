@@ -12,6 +12,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageExc
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
+use Throwable;
 
 /**
  * @group ms-teams-webhook-message-senders
@@ -100,6 +101,27 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    /**
+     * @dataProvider getHandlingRequestSendMessageExceptionsProvidedData
+     */
+    public function testHandleRequestSendMessageExceptions(
+        Connector $connector,
+        Message $message,
+        array $expectedRequestParams,
+        Throwable $thrownRequestSendMessageException,
+        string $expectedExceptionClass
+    ): void {
+        $this->client
+            ->expects($this->once())
+            ->method('post')
+            ->with(...$expectedRequestParams)
+            ->willThrowException($thrownRequestSendMessageException);
+
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendMessage($connector, $message);
     }
 
     /**
