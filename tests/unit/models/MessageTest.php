@@ -113,6 +113,13 @@ class MessageTest extends TestCase
                 ],
                 'expectedJsonString' => '{"text": "", "title": ""}',
             ],
+            'text empty, title not set' => [
+                'messageData' => [
+                    'text' => '',
+                    'title' => null,
+                ],
+                'expectedJsonString' => '{"text": "", "title": null}',
+            ],
         ];
     }
 
