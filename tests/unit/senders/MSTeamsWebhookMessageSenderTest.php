@@ -62,7 +62,11 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
     public function getInvalidConnectorProvidedData(): array
     {
         return [
-            [],
+            'valid message, connector empty incoming webhook url' => [
+                'connector' => new Connector(''),
+                'message' => new Message('text'),
+                'expectedExceptionClass' => EmptyIncomingWebhookUrlException::class,
+            ],
         ];
     }
 }
