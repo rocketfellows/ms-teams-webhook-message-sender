@@ -29,8 +29,10 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
         $this->client = $client;
     }
 
-    public function sendMessage(Connector $connector, Message $message): void
-    {
+    public function sendMessage(
+        Connector $connector,
+        Message $message
+    ): void {
         $this
             ->validateConnector($connector)
             ->validateMessage($message)
@@ -72,8 +74,10 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
     /**
      * @throws ConnectorException
      */
-    private function requestSendMessage(Connector $connector, string $jsonMessageData): void
-    {
+    private function requestSendMessage(
+        Connector $connector,
+        string $jsonMessageData
+    ): void {
         try {
             $this->client->post(
                 $connector->getIncomingWebhookUrl(),
