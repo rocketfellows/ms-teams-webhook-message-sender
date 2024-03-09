@@ -71,7 +71,7 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
                 'expectedRequestParams' => [
                     'https://foo.com/',
                     [
-                        'body' => '{"text": "text", "title": ""}',
+                        'body' => '{"text":"text","title":""}',
                         'headers' => ['Content-Type' => 'application/json'],
                     ],
                 ],
@@ -82,7 +82,18 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
                 'expectedRequestParams' => [
                     'https://foo.com/',
                     [
-                        'body' => '{"text": "text", "title": null}',
+                        'body' => '{"text":"text","title":null}',
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ],
+                ],
+            ],
+            'message text set, title set' => [
+                'connector' => new Connector('https://foo.com/'),
+                'message' => new Message('text', 'title'),
+                'expectedRequestParams' => [
+                    'https://foo.com/',
+                    [
+                        'body' => '{"text":"text","title":"title"}',
                         'headers' => ['Content-Type' => 'application/json'],
                     ],
                 ],
