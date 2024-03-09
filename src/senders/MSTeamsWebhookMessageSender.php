@@ -3,8 +3,9 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\senders;
 
 use GuzzleHttp\Client;
+use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 
-class MSTeamsWebhookMessageSender
+class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterface
 {
     private $client;
 
