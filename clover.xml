@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710000033">
-  <project timestamp="1710000033">
+<coverage generated="1710006627">
+  <project timestamp="1710006627">
     <file name="/app/src/configs/Connector.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\configs\Connector" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
