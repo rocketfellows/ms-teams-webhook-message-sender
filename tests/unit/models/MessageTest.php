@@ -96,6 +96,13 @@ class MessageTest extends TestCase
         $this->assertEquals($expectedJsonString, $actualMessage->convertToJson());
     }
 
+    public function getConvertMessageToJsonProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     private function assertActualMessageDataEqualsExpected(Message $actualMessage, array $expectedMessageData): void
     {
         $this->assertEquals($expectedMessageData['text'], $actualMessage->getText());
