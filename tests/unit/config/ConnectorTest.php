@@ -22,6 +22,11 @@ class ConnectorTest extends TestCase
         );
     }
 
+    public function getInitConnectorProvidedData(): array
+    {
+        return [];
+    }
+
     private function assertActualConnectorDataEqualsExpected(Connector $connector, array $expectedConnectorData): void
     {
         $this->assertEquals($expectedConnectorData['incomingWebhookUrl'], $connector->getIncomingWebhookUrl());
