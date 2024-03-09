@@ -12,6 +12,10 @@ use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSende
  */
 class MSTeamsWebhookMessageSenderTest extends TestCase
 {
+    private const EXPECTED_IMPLEMENTED_INTERFACES = [
+        MSTeamsWebhookMessageSenderInterface::class,
+    ];
+
     /**
      * @var MSTeamsWebhookMessageSenderInterface
      */
@@ -31,5 +35,12 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
         $this->sender = new MSTeamsWebhookMessageSender(
             $this->client
         );
+    }
+
+    public function testSenderImplementsInterfaces(): void
+    {
+        foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
+            $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
+        }
     }
 }
