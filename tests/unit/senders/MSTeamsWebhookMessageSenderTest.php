@@ -5,6 +5,7 @@ namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\senders;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
+use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 
 /**
  * @group ms-teams-webhook-message-senders
