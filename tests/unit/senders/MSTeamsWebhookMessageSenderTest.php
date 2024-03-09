@@ -62,6 +62,13 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
         $this->sender->sendMessage($connector, $message);
     }
 
+    public function getSuccessSendMessageProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getInvalidConnectorProvidedData
      */
