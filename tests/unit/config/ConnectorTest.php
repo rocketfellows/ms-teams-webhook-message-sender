@@ -12,6 +12,19 @@ class ConnectorTest extends TestCase
     /**
      * @dataProvider getInitConnectorProvidedData
      */
+    public function testCreateConnector(
+        array $connectorData,
+        array $expectedConnectorData
+    ): void {
+        $this->assertActualConnectorDataEqualsExpected(
+            Connector::create($connectorData['incomingWebhookUrl']),
+            $expectedConnectorData
+        );
+    }
+
+    /**
+     * @dataProvider getInitConnectorProvidedData
+     */
     public function testInitConnector(
         array $connectorData,
         array $expectedConnectorData
