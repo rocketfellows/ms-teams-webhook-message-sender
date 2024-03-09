@@ -2,6 +2,11 @@
 
 namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\models;
 
-class MessageTest
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @group ms-teams-webhook-message-sender-models
+ */
+class MessageTest extends TestCase
 {
 }
