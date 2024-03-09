@@ -24,6 +24,17 @@ class MessageTest extends TestCase
 
     public function getInitMessageProvidedData(): array
     {
-        return [];
+        return [
+            'text not empty, title not empty' => [
+                'messageData' => [
+                    'text' => 'text',
+                    'title' => 'title',
+                ],
+                'expectedMessageData' => [
+                    'text' => 'text',
+                    'title' => 'title',
+                ],
+            ],
+        ];
     }
 }
