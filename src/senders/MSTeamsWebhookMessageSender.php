@@ -31,7 +31,6 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
 
     public function sendMessage(Connector $connector, Message $message): void
     {
-        // TODO: Implement sendMessage() method.
         $this->validateConnector($connector);
         $this->validateMessage($message);
 
