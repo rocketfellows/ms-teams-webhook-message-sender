@@ -3,6 +3,10 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\senders;
 
 use GuzzleHttp\Client;
+use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 
 class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterface
@@ -13,5 +17,10 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
         Client $client
     ) {
         $this->client = $client;
+    }
+
+    public function sendMessage(Connector $connector, Message $message): void
+    {
+        // TODO: Implement sendMessage() method.
     }
 }
