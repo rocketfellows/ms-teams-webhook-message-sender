@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709999265">
-  <project timestamp="1709999265">
+<coverage generated="1710000033">
+  <project timestamp="1710000033">
     <file name="/app/src/configs/Connector.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\configs\Connector" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
@@ -19,24 +19,31 @@
     </file>
     <file name="/app/src/models/Message.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\models\Message" namespace="global">
-        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+        <metrics complexity="6" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="21" coveredelements="21"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="14" type="stmt" count="8"/>
-      <line num="15" type="stmt" count="8"/>
-      <line num="18" type="method" name="create" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="22" type="stmt" count="4"/>
-      <line num="23" type="stmt" count="4"/>
-      <line num="24" type="stmt" count="4"/>
-      <line num="25" type="stmt" count="4"/>
-      <line num="26" type="stmt" count="4"/>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="12"/>
+      <line num="19" type="stmt" count="12"/>
+      <line num="20" type="stmt" count="12"/>
+      <line num="23" type="method" name="create" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="27" type="stmt" count="4"/>
-      <line num="30" type="method" name="getText" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="32" type="stmt" count="8"/>
-      <line num="35" type="method" name="getTitle" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="37" type="stmt" count="8"/>
-      <metrics loc="40" ncloc="40" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+      <line num="28" type="stmt" count="4"/>
+      <line num="29" type="stmt" count="4"/>
+      <line num="30" type="stmt" count="4"/>
+      <line num="31" type="stmt" count="4"/>
+      <line num="32" type="stmt" count="4"/>
+      <line num="35" type="method" name="getText" visibility="public" complexity="1" crap="1" count="12"/>
+      <line num="37" type="stmt" count="12"/>
+      <line num="40" type="method" name="getTitle" visibility="public" complexity="1" crap="1" count="12"/>
+      <line num="42" type="stmt" count="12"/>
+      <line num="45" type="method" name="convertToJson" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="47" type="stmt" count="4"/>
+      <line num="50" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="52" type="stmt" count="4"/>
+      <line num="53" type="stmt" count="4"/>
+      <line num="54" type="stmt" count="4"/>
+      <line num="55" type="stmt" count="4"/>
+      <metrics loc="58" ncloc="58" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="21" coveredelements="21"/>
     </file>
-    <metrics files="2" loc="69" ncloc="69" classes="2" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="24" coveredelements="24"/>
+    <metrics files="2" loc="87" ncloc="87" classes="2" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="31" coveredelements="31"/>
   </project>
 </coverage>
