@@ -1,6 +1,6 @@
 <?php
 
-namespace rocketfellows\MSTeamsWebhookMessageSender\config;
+namespace rocketfellows\MSTeamsWebhookMessageSender\configs;
 
 class Connector
 {

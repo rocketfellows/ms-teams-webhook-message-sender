@@ -1,9 +1,9 @@
 <?php
 
-namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\config;
+namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\configs;
 
 use PHPUnit\Framework\TestCase;
-use rocketfellows\MSTeamsWebhookMessageSender\config\Connector;
+use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 
 /**
  * @group ms-teams-webhook-message-sender-configs
