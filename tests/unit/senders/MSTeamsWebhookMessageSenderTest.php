@@ -3,6 +3,7 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\senders;
 
 use GuzzleHttp\Client;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
@@ -27,7 +28,7 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
     private $sender;
 
     /**
-     * @var Client
+     * @var Client|MockObject
      */
     private $client;
 
