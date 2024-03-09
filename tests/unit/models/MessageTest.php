@@ -3,6 +3,7 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\models;
 
 use PHPUnit\Framework\TestCase;
+use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 
 /**
  * @group ms-teams-webhook-message-sender-models
