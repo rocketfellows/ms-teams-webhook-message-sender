@@ -3,10 +3,12 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\senders;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 
@@ -61,14 +63,25 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
         }
     }
 
+    /**
+     * @throws ConnectorException
+     */
     private function requestSendMessage(Connector $connector, string $jsonMessageData): void
     {
-        $this->client->post(
-            $connector->getIncomingWebhookUrl(),
-            [
-                self::REQUEST_SEND_MESSAGE_PARAM_NAME_BODY => $jsonMessageData,
-                self::REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS => self::REQUEST_SEND_MESSAGE_PARAM_VALUE_HEADERS,
-            ]
-        );
+        try {
+            $this->client->post(
+                $connector->getIncomingWebhookUrl(),
+                [
+                    self::REQUEST_SEND_MESSAGE_PARAM_NAME_BODY => $jsonMessageData,
+                    self::REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS => self::REQUEST_SEND_MESSAGE_PARAM_VALUE_HEADERS,
+                ]
+            );
+        } catch (GuzzleException $exception) {
+            throw new ConnectorException(
+                $exception->getMessage(),
+                $exception->getCode(),
+                $exception
+            );
+        }
     }
 }
