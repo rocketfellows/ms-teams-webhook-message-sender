@@ -9,4 +9,21 @@ use PHPUnit\Framework\TestCase;
  */
 class ConnectorTest extends TestCase
 {
+    /**
+     * @dataProvider getInitConnectorProvidedData
+     */
+    public function testInitConnector(
+        array $connectorData,
+        array $expectedConnectorData
+    ): void {
+        $this->assertActualConnectorDataEqualsExpected(
+            (new Connector($connectorData['incomingWebhookUrl'])),
+            $expectedConnectorData
+        );
+    }
+
+    private function assertActualConnectorDataEqualsExpected(Connector $connector, array $expectedConnectorData): void
+    {
+        $this->assertEquals($expectedConnectorData['incomingWebhookUrl'], $connector->getIncomingWebhookUrl());
+    }
 }
