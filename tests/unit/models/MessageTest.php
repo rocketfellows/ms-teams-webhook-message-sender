@@ -55,6 +55,16 @@ class MessageTest extends TestCase
                     'title' => null,
                 ],
             ],
+            'text empty, title not set' => [
+                'messageData' => [
+                    'text' => '',
+                    'title' => null,
+                ],
+                'expectedMessageData' => [
+                    'text' => '',
+                    'title' => null,
+                ],
+            ],
         ];
     }
 }
