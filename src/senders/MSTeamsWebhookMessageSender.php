@@ -12,6 +12,13 @@ use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterfa
 
 class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterface
 {
+    private const REQUEST_SEND_MESSAGE_PARAM_NAME_BODY = 'body';
+    private const REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS = 'headers';
+
+    private const REQUEST_SEND_MESSAGE_PARAM_VALUE_HEADERS = [
+        'Content-Type' => 'application/json',
+    ];
+
     private $client;
 
     public function __construct(
@@ -50,5 +57,16 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
         if (empty($message->getText())) {
             throw new EmptyMessageException();
         }
+    }
+
+    private function requestSendMessage(Connector $connector, string $jsonMessageData): void
+    {
+        $this->client->post(
+            $connector->getIncomingWebhookUrl(),
+            [
+                self::REQUEST_SEND_MESSAGE_PARAM_NAME_BODY => $jsonMessageData,
+                self::REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS => self::REQUEST_SEND_MESSAGE_PARAM_VALUE_HEADERS,
+            ]
+        );
     }
 }
