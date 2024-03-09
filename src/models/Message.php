@@ -2,8 +2,13 @@
 
 namespace rocketfellows\MSTeamsWebhookMessageSender\models;
 
-class Message
+use JsonSerializable;
+
+class Message implements JsonSerializable
 {
+    private const PARAM_NAME_TEXT = 'text';
+    private const PARAM_NAME_TITLE = 'title';
+
     private $text;
     private $title;
 
@@ -35,5 +40,13 @@ class Message
     public function getTitle(): ?string
     {
         return $this->title;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            self::PARAM_NAME_TEXT => $this->getText(),
+            self::PARAM_NAME_TITLE => $this->getTitle(),
+        ];
     }
 }
