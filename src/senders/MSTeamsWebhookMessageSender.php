@@ -31,17 +31,20 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
 
     public function sendMessage(Connector $connector, Message $message): void
     {
-        $this->validateConnector($connector);
-        $this->validateMessage($message);
-
-        $this->requestSendMessage($connector, $message->convertToJson());
+        $this
+            ->validateConnector($connector)
+            ->validateMessage($message)
+            ->requestSendMessage(
+                $connector,
+                $message->convertToJson()
+            );
     }
 
     /**
      * @throws EmptyIncomingWebhookUrlException
      * @throws InvalidIncomingWebhookUrlException
      */
-    private function validateConnector(Connector $connector): void
+    private function validateConnector(Connector $connector): self
     {
         if (empty($connector->getIncomingWebhookUrl())) {
             throw new EmptyIncomingWebhookUrlException();
@@ -50,16 +53,20 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
         if (!filter_var($connector->getIncomingWebhookUrl(), FILTER_VALIDATE_URL)) {
             throw new InvalidIncomingWebhookUrlException();
         }
+
+        return $this;
     }
 
     /**
      * @throws EmptyMessageException
      */
-    private function validateMessage(Message $message): void
+    private function validateMessage(Message $message): self
     {
         if (empty($message->getText())) {
             throw new EmptyMessageException();
         }
+
+        return $this;
     }
 
     /**
