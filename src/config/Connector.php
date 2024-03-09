@@ -11,4 +11,9 @@ class Connector
     ) {
         $this->incomingWebhookUrl = $incomingWebhookUrl;
     }
+
+    public function getIncomingWebhookUrl(): string
+    {
+        return $this->incomingWebhookUrl;
+    }
 }
