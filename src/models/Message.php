@@ -14,4 +14,14 @@ class Message
         $this->text = $text;
         $this->title = $title;
     }
+
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
 }
