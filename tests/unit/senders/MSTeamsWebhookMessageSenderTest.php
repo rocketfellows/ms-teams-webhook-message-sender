@@ -76,4 +76,17 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider getInvalidMessageProvidedData
+     */
+    public function testSendMessageNotExecutedCauseInvalidMessage(
+        Connector $connector,
+        Message $message,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendMessage($connector, $message);
+    }
 }
