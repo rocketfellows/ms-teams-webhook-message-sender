@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709998140">
-  <project timestamp="1709998140">
-    <file name="/app/src/config/Connector.php">
-      <class name="rocketfellows\MSTeamsWebhookMessageSender\config\Connector" namespace="global">
+<coverage generated="1709998407">
+  <project timestamp="1709998407">
+    <file name="/app/src/configs/Connector.php">
+      <class name="rocketfellows\MSTeamsWebhookMessageSender\configs\Connector" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
       </class>
       <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
