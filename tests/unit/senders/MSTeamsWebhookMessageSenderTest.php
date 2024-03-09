@@ -67,6 +67,11 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
                 'message' => new Message('text'),
                 'expectedExceptionClass' => EmptyIncomingWebhookUrlException::class,
             ],
+            'valid message, connector incoming webhook invalid url' => [
+                'connector' => new Connector('foo'),
+                'message' => new Message('text'),
+                'expectedExceptionClass' => InvalidIncomingWebhookUrlException::class,
+            ],
         ];
     }
 }
