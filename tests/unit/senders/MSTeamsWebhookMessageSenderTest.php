@@ -76,6 +76,17 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
                     ],
                 ],
             ],
+            'message text set, title not set' => [
+                'connector' => new Connector('https://foo.com/'),
+                'message' => new Message('text'),
+                'expectedRequestParams' => [
+                    'https://foo.com/',
+                    [
+                        'body' => '{"text": "text", "title": null}',
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ],
+                ],
+            ],
         ];
     }
 
