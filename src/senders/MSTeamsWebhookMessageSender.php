@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 
@@ -23,6 +24,7 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
     {
         // TODO: Implement sendMessage() method.
         $this->validateConnector($connector);
+        $this->validateMessage($message);
     }
 
     /**
@@ -37,6 +39,16 @@ class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterfac
 
         if (!filter_var($connector->getIncomingWebhookUrl(), FILTER_VALIDATE_URL)) {
             throw new InvalidIncomingWebhookUrlException();
+        }
+    }
+
+    /**
+     * @throws EmptyMessageException
+     */
+    private function validateMessage(Message $message): void
+    {
+        if (empty($message->getText())) {
+            throw new EmptyMessageException();
         }
     }
 }
