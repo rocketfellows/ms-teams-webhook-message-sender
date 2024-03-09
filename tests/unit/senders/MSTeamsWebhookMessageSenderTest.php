@@ -4,6 +4,8 @@ namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\senders;
 
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
+use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
+use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 
@@ -42,5 +44,18 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
         foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
             $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
         }
+    }
+
+    /**
+     * @dataProvider getInvalidConnectorProvidedData
+     */
+    public function testSendMessageNotExecutedCauseInvalidConnector(
+        Connector $connector,
+        Message $message,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendMessage($connector, $message);
     }
 }
