@@ -33,6 +33,14 @@ class ConnectorTest extends TestCase
                     'incomingWebhookUrl' => 'incomingWebhookUrl',
                 ],
             ],
+            'incoming webhook url empty' => [
+                'connectorData' => [
+                    'incomingWebhookUrl' => '',
+                ],
+                'expectedConnectorData' => [
+                    'incomingWebhookUrl' => '',
+                ],
+            ],
         ];
     }
 
