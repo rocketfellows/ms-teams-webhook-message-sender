@@ -99,7 +99,13 @@ class MessageTest extends TestCase
     public function getConvertMessageToJsonProvidedData(): array
     {
         return [
-            [],
+            'text not empty, title not empty' => [
+                'messageData' => [
+                    'text' => 'text',
+                    'title' => 'title',
+                ],
+                'expectedJsonString' => '{"text": "text", "title": "title"}',
+            ],
         ];
     }
 
