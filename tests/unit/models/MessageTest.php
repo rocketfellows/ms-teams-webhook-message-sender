@@ -104,28 +104,28 @@ class MessageTest extends TestCase
                     'text' => 'text',
                     'title' => 'title',
                 ],
-                'expectedJsonString' => '{"text": "text", "title": "title"}',
+                'expectedJsonString' => '{"text":"text","title":"title"}',
             ],
             'text empty, title empty' => [
                 'messageData' => [
                     'text' => '',
                     'title' => '',
                 ],
-                'expectedJsonString' => '{"text": "", "title": ""}',
+                'expectedJsonString' => '{"text":"","title":""}',
             ],
             'text empty, title not set' => [
                 'messageData' => [
                     'text' => '',
                     'title' => null,
                 ],
-                'expectedJsonString' => '{"text": "", "title": null}',
+                'expectedJsonString' => '{"text":"","title":null}',
             ],
             'text not empty, title not set' => [
                 'messageData' => [
                     'text' => 'text',
                     'title' => null,
                 ],
-                'expectedJsonString' => '{"text": "text", "title": null}',
+                'expectedJsonString' => '{"text":"text","title":null}',
             ],
         ];
     }

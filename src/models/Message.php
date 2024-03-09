@@ -42,6 +42,11 @@ class Message implements JsonSerializable
         return $this->title;
     }
 
+    public function convertToJson(): string
+    {
+        return json_encode($this);
+    }
+
     public function jsonSerialize(): array
     {
         return [
