@@ -24,7 +24,16 @@ class ConnectorTest extends TestCase
 
     public function getInitConnectorProvidedData(): array
     {
-        return [];
+        return [
+            'incoming webhook url not empty' => [
+                'connectorData' => [
+                    'incomingWebhookUrl' => 'incomingWebhookUrl',
+                ],
+                'expectedConnectorData' => [
+                    'incomingWebhookUrl' => 'incomingWebhookUrl',
+                ],
+            ],
+        ];
     }
 
     private function assertActualConnectorDataEqualsExpected(Connector $connector, array $expectedConnectorData): void
