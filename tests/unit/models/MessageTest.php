@@ -13,6 +13,19 @@ class MessageTest extends TestCase
     /**
      * @dataProvider getInitMessageProvidedData
      */
+    public function testCreate(
+        array $messageData,
+        array $expectedMessageData
+    ): void {
+        $this->assertActualMessageDataEqualsExpected(
+            Message::create($messageData['text'], $messageData['title']),
+            $expectedMessageData
+        );
+    }
+
+    /**
+     * @dataProvider getInitMessageProvidedData
+     */
     public function testInitMessage(
         array $messageData,
         array $expectedMessageData
