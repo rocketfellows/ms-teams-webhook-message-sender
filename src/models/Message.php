@@ -15,6 +15,18 @@ class Message
         $this->title = $title;
     }
 
+    public static function create(
+        string $text,
+        ?string $title = null
+    ): self {
+        return (
+            new self(
+                $text,
+                $title
+            )
+        );
+    }
+
     public function getText(): string
     {
         return $this->text;
