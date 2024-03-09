@@ -2,6 +2,7 @@
 
 namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\models;
 
+use JsonSerializable;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 
@@ -80,6 +81,19 @@ class MessageTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    /**
+     * @dataProvider getConvertMessageToJsonProvidedData
+     */
+    public function testConvertMessageToJson(
+        array $messageData,
+        string $expectedJsonString
+    ): void {
+        $actualMessage = new Message($messageData['text'], $messageData['title']);
+
+        $this->assertInstanceOf(JsonSerializable::class, $actualMessage);
+        $this->assertEquals($expectedJsonString, $actualMessage->convertToJson());
     }
 
     private function assertActualMessageDataEqualsExpected(Message $actualMessage, array $expectedMessageData): void
