@@ -65,7 +65,17 @@ class MSTeamsWebhookMessageSenderTest extends TestCase
     public function getSuccessSendMessageProvidedData(): array
     {
         return [
-            [],
+            'message text set, title empty' => [
+                'connector' => new Connector('https://foo.com/'),
+                'message' => new Message('text', ''),
+                'expectedRequestParams' => [
+                    'https://foo.com/',
+                    [
+                        'body' => '{"text": "text", "title": ""}',
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ],
+                ],
+            ],
         ];
     }
 
