@@ -21,4 +21,9 @@ class MessageTest extends TestCase
             $expectedMessageData
         );
     }
+
+    public function getInitMessageProvidedData(): array
+    {
+        return [];
+    }
 }
