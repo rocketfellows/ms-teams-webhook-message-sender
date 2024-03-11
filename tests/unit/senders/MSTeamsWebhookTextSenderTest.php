@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 
@@ -57,5 +58,16 @@ class MSTeamsWebhookTextSenderTest extends TestCase
         $this->expectException($expectedExceptionClass);
 
         $this->sender->sendText($connector, $text);
+    }
+
+    public function getInvalidTextProvidedData(): array
+    {
+        return [
+            'valid connector, empty text' => [
+                'connector' => new Connector('https://foo.com/'),
+                'text' => '',
+                'expectedExceptionClass' => EmptyMessageException::class,
+            ],
+        ];
     }
 }
