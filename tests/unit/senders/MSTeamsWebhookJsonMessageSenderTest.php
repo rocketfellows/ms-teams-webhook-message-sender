@@ -5,6 +5,7 @@ namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\senders;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 
@@ -43,5 +44,18 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
         foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
             $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
         }
+    }
+
+    /**
+     * @dataProvider getInvalidJsonMessageProvidedData
+     */
+    public function testSendJsonMessageNotExecutedCauseInvalidText(
+        Connector $connector,
+        string $jsonMessage,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendJsonMessage($connector, $jsonMessage);
     }
 }
