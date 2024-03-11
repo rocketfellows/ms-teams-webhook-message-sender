@@ -67,6 +67,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
                 'jsonMessage' => '',
                 'expectedExceptionClass' => InvalidJsonMessageException::class,
             ],
+            'valid connector, json message is invalid json string' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => '{text:text, title: title}',
+                'expectedExceptionClass' => InvalidJsonMessageException::class,
+            ],
         ];
     }
 }
