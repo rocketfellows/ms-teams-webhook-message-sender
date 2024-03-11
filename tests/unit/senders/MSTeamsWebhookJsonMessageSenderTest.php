@@ -49,7 +49,7 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
     /**
      * @dataProvider getInvalidJsonMessageProvidedData
      */
-    public function testSendJsonMessageNotExecutedCauseInvalidText(
+    public function testSendJsonMessageNotExecutedCauseInvalidJsonMessage(
         Connector $connector,
         string $jsonMessage,
         string $expectedExceptionClass
