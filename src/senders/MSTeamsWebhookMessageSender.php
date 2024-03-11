@@ -52,7 +52,9 @@ class MSTeamsWebhookMessageSender implements
         // TODO: Implement sendText() method.
         $message = Message::create($text);
 
-        $this->validateMessage($message);
+        $this
+            ->validateConnector($connector)
+            ->validateMessage($message);
     }
 
     /**
