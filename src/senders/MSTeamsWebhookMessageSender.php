@@ -45,6 +45,13 @@ class MSTeamsWebhookMessageSender implements
             );
     }
 
+    public function sendText(
+        Connector $connector,
+        string $text
+    ): void {
+        // TODO: Implement sendText() method.
+    }
+
     /**
      * @throws EmptyIncomingWebhookUrlException
      * @throws InvalidIncomingWebhookUrlException
