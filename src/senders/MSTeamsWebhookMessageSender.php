@@ -49,12 +49,15 @@ class MSTeamsWebhookMessageSender implements
         Connector $connector,
         string $text
     ): void {
-        // TODO: Implement sendText() method.
         $message = Message::create($text);
 
         $this
             ->validateConnector($connector)
-            ->validateMessage($message);
+            ->validateMessage($message)
+            ->requestSendMessage(
+                $connector,
+                $message->convertToJson()
+            );
     }
 
     /**
