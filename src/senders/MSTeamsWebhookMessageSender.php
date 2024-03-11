@@ -32,25 +32,20 @@ class MSTeamsWebhookMessageSender implements
         $this->client = $client;
     }
 
-    public function sendMessage(
-        Connector $connector,
-        Message $message
-    ): void {
-        $this
-            ->validateConnector($connector)
-            ->validateMessage($message)
-            ->requestSendMessage(
-                $connector,
-                $message->convertToJson()
-            );
-    }
-
     public function sendText(
         Connector $connector,
         string $text
     ): void {
-        $message = Message::create($text);
+        $this->sendMessage(
+            $connector,
+            Message::create($text)
+        );
+    }
 
+    public function sendMessage(
+        Connector $connector,
+        Message $message
+    ): void {
         $this
             ->validateConnector($connector)
             ->validateMessage($message)
