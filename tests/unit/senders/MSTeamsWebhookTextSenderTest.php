@@ -11,6 +11,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncoming
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
+use Throwable;
 
 /**
  * @group ms-teams-webhook-message-senders
@@ -57,6 +58,27 @@ class MSTeamsWebhookTextSenderTest extends TestCase
         string $text,
         string $expectedExceptionClass
     ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendText($connector, $text);
+    }
+
+    /**
+     * @dataProvider getHandlingRequestSendTextExceptionsProvidedData
+     */
+    public function testHandleRequestSendTextExceptions(
+        Connector $connector,
+        string $text,
+        array $expectedRequestParams,
+        Throwable $thrownRequestSendTextException,
+        string $expectedExceptionClass
+    ): void {
+        $this->client
+            ->expects($this->once())
+            ->method('post')
+            ->with(...$expectedRequestParams)
+            ->willThrowException($thrownRequestSendTextException);
+
         $this->expectException($expectedExceptionClass);
 
         $this->sender->sendText($connector, $text);
