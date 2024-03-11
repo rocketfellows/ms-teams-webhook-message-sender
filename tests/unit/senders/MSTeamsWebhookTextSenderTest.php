@@ -60,6 +60,13 @@ class MSTeamsWebhookTextSenderTest extends TestCase
         $this->sender->sendText($connector, $text);
     }
 
+    public function getInvalidConnectorProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getInvalidTextProvidedData
      */
