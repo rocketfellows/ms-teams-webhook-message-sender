@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710172373">
-  <project timestamp="1710172373">
+<coverage generated="1710172620">
+  <project timestamp="1710172620">
     <file name="/app/src/MSTeamsWebhookMessageSenderInterface.php">
       <metrics loc="22" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/MSTeamsWebhookTextSenderInterface.php">
-      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="21" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/configs/Connector.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\configs\Connector" namespace="global">
@@ -143,6 +143,6 @@
       <line num="107" type="stmt" count="2"/>
       <metrics loc="111" ncloc="101" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="39" coveredelements="39"/>
     </file>
-    <metrics files="13" loc="303" ncloc="287" classes="3" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="55" elements="70" coveredelements="70"/>
+    <metrics files="13" loc="313" ncloc="291" classes="3" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="55" elements="70" coveredelements="70"/>
   </project>
 </coverage>
