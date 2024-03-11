@@ -7,6 +7,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
@@ -68,6 +69,11 @@ class MSTeamsWebhookTextSenderTest extends TestCase
                 'connector' => new Connector(''),
                 'text' => 'text',
                 'expectedExceptionClass' => EmptyIncomingWebhookUrlException::class,
+            ],
+            'valid text, connector incoming webhook invalid url' => [
+                'connector' => new Connector('foo'),
+                'text' => 'text',
+                'expectedExceptionClass' => InvalidIncomingWebhookUrlException::class,
             ],
         ];
     }
