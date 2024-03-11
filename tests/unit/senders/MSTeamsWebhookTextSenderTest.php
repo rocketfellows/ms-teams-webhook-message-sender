@@ -51,19 +51,6 @@ class MSTeamsWebhookTextSenderTest extends TestCase
     }
 
     /**
-     * @dataProvider getInvalidConnectorProvidedData
-     */
-    public function testSendTextNotExecutedCauseInvalidConnector(
-        Connector $connector,
-        string $text,
-        string $expectedExceptionClass
-    ): void {
-        $this->expectException($expectedExceptionClass);
-
-        $this->sender->sendText($connector, $text);
-    }
-
-    /**
      * @dataProvider getHandlingRequestSendTextExceptionsProvidedData
      */
     public function testHandleRequestSendTextExceptions(
@@ -79,6 +66,19 @@ class MSTeamsWebhookTextSenderTest extends TestCase
             ->with(...$expectedRequestParams)
             ->willThrowException($thrownRequestSendTextException);
 
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendText($connector, $text);
+    }
+
+    /**
+     * @dataProvider getInvalidConnectorProvidedData
+     */
+    public function testSendTextNotExecutedCauseInvalidConnector(
+        Connector $connector,
+        string $text,
+        string $expectedExceptionClass
+    ): void {
         $this->expectException($expectedExceptionClass);
 
         $this->sender->sendText($connector, $text);
