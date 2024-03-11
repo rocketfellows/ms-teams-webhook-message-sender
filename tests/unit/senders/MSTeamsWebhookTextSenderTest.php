@@ -65,6 +65,13 @@ class MSTeamsWebhookTextSenderTest extends TestCase
         $this->sender->sendText($connector, $text);
     }
 
+    public function getSuccessSendTextProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getHandlingRequestSendTextExceptionsProvidedData
      */
