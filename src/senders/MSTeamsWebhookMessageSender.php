@@ -11,8 +11,11 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageExc
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
+use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 
-class MSTeamsWebhookMessageSender implements MSTeamsWebhookMessageSenderInterface
+class MSTeamsWebhookMessageSender implements
+    MSTeamsWebhookMessageSenderInterface,
+    MSTeamsWebhookTextSenderInterface
 {
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_BODY = 'body';
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS = 'headers';
