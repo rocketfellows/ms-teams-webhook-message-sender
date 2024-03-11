@@ -3,12 +3,14 @@
 namespace rocketfellows\MSTeamsWebhookMessageSender\tests\unit\senders;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 use Throwable;
@@ -74,7 +76,19 @@ class MSTeamsWebhookTextSenderTest extends TestCase
     public function getHandlingRequestSendTextExceptionsProvidedData(): array
     {
         return [
-            [],
+            'client throws GuzzleException' => [
+                'connector' => new Connector('https://foo.com/'),
+                'text' => 'text',
+                'expectedRequestParams' => [
+                    'https://foo.com/',
+                    [
+                        'body' => '{"text":"text","title":null}',
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ],
+                ],
+                'thrownRequestSendMessageException' => $this->createMock(GuzzleException::class),
+                'expectedExceptionClass' => ConnectorException::class,
+            ],
         ];
     }
 
