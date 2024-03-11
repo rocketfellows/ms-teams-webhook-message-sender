@@ -72,6 +72,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
                 'jsonMessage' => '{text:text, title: title}',
                 'expectedExceptionClass' => InvalidJsonMessageException::class,
             ],
+            'valid connector, json message is json string with wrong quotes' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => "{'text':'text'}",
+                'expectedExceptionClass' => InvalidJsonMessageException::class,
+            ],
         ];
     }
 }
