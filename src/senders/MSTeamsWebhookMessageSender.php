@@ -10,12 +10,14 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncoming
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
+use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 
 class MSTeamsWebhookMessageSender implements
     MSTeamsWebhookMessageSenderInterface,
-    MSTeamsWebhookTextSenderInterface
+    MSTeamsWebhookTextSenderInterface,
+    MSTeamsWebhookJsonMessageSenderInterface
 {
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_BODY = 'body';
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS = 'headers';
