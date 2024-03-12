@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710258826">
-  <project timestamp="1710258826">
+<coverage generated="1710259176">
+  <project timestamp="1710259176">
     <file name="/app/src/MSTeamsWebhookJsonMessageSenderInterface.php">
       <metrics loc="21" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -22,8 +22,8 @@
       <line num="19" type="stmt" count="2"/>
       <line num="20" type="stmt" count="2"/>
       <line num="21" type="stmt" count="2"/>
-      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="33"/>
-      <line num="26" type="stmt" count="33"/>
+      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="34"/>
+      <line num="26" type="stmt" count="34"/>
       <metrics loc="29" ncloc="29" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
     </file>
     <file name="/app/src/exceptions/MSTeamsWebhookMessageSenderException.php">
@@ -111,8 +111,8 @@
       <class name="rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender" namespace="global">
         <metrics complexity="13" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="48" coveredelements="48"/>
       </class>
-      <line num="32" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="32"/>
-      <line num="35" type="stmt" count="32"/>
+      <line num="32" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="35" type="stmt" count="33"/>
       <line num="38" type="method" name="sendText" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="42" type="stmt" count="5"/>
       <line num="43" type="stmt" count="5"/>
@@ -126,33 +126,33 @@
       <line num="56" type="stmt" count="12"/>
       <line num="57" type="stmt" count="12"/>
       <line num="58" type="stmt" count="12"/>
-      <line num="61" type="method" name="sendJsonMessage" visibility="public" complexity="1" crap="1" count="17"/>
-      <line num="63" type="stmt" count="17"/>
-      <line num="64" type="stmt" count="17"/>
-      <line num="65" type="stmt" count="17"/>
-      <line num="66" type="stmt" count="17"/>
-      <line num="73" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="29"/>
-      <line num="75" type="stmt" count="29"/>
+      <line num="61" type="method" name="sendJsonMessage" visibility="public" complexity="1" crap="1" count="18"/>
+      <line num="63" type="stmt" count="18"/>
+      <line num="64" type="stmt" count="18"/>
+      <line num="65" type="stmt" count="18"/>
+      <line num="66" type="stmt" count="18"/>
+      <line num="73" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="30"/>
+      <line num="75" type="stmt" count="30"/>
       <line num="76" type="stmt" count="3"/>
-      <line num="79" type="stmt" count="26"/>
+      <line num="79" type="stmt" count="27"/>
       <line num="80" type="stmt" count="3"/>
-      <line num="83" type="stmt" count="23"/>
+      <line num="83" type="stmt" count="24"/>
       <line num="89" type="method" name="validateMessage" visibility="private" complexity="2" crap="2" count="8"/>
       <line num="91" type="stmt" count="8"/>
       <line num="92" type="stmt" count="2"/>
       <line num="95" type="stmt" count="6"/>
-      <line num="101" type="method" name="validateJsonMessage" visibility="private" complexity="2" crap="2" count="15"/>
-      <line num="103" type="stmt" count="15"/>
+      <line num="101" type="method" name="validateJsonMessage" visibility="private" complexity="2" crap="2" count="16"/>
+      <line num="103" type="stmt" count="16"/>
       <line num="104" type="stmt" count="14"/>
-      <line num="107" type="stmt" count="1"/>
-      <line num="113" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="7"/>
-      <line num="118" type="stmt" count="7"/>
-      <line num="119" type="stmt" count="7"/>
-      <line num="120" type="stmt" count="7"/>
-      <line num="121" type="stmt" count="7"/>
-      <line num="122" type="stmt" count="7"/>
-      <line num="123" type="stmt" count="7"/>
-      <line num="124" type="stmt" count="7"/>
+      <line num="107" type="stmt" count="2"/>
+      <line num="113" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="8"/>
+      <line num="118" type="stmt" count="8"/>
+      <line num="119" type="stmt" count="8"/>
+      <line num="120" type="stmt" count="8"/>
+      <line num="121" type="stmt" count="8"/>
+      <line num="122" type="stmt" count="8"/>
+      <line num="123" type="stmt" count="8"/>
+      <line num="124" type="stmt" count="8"/>
       <line num="125" type="stmt" count="3"/>
       <line num="126" type="stmt" count="3"/>
       <line num="127" type="stmt" count="3"/>
