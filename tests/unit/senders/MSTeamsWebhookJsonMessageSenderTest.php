@@ -54,23 +54,23 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
      */
     public function testSendJsonMessageNotExecutedCauseInvalidConnector(
         Connector $connector,
-        string $text,
+        string $jsonMessage,
         string $expectedExceptionClass
     ): void {
         $this->expectException($expectedExceptionClass);
 
-        $this->sender->sendJsonMessage($connector, $text);
+        $this->sender->sendJsonMessage($connector, $jsonMessage);
     }
 
     public function getInvalidConnectorProvidedData(): array
     {
         return [
-            'valid text, connector empty incoming webhook url' => [
+            'valid json message, connector empty incoming webhook url' => [
                 'connector' => new Connector(''),
                 'jsonMessage' => '{"text":"text","title":"title"}',
                 'expectedExceptionClass' => EmptyIncomingWebhookUrlException::class,
             ],
-            'valid text, connector incoming webhook invalid url' => [
+            'valid json message, connector incoming webhook invalid url' => [
                 'connector' => new Connector('foo'),
                 'jsonMessage' => '{"text":"text","title":"title"}',
                 'expectedExceptionClass' => InvalidIncomingWebhookUrlException::class,
