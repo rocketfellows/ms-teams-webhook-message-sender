@@ -53,6 +53,19 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
     }
 
     /**
+     * @dataProvider getSuccessSendJsonMessageProvidedData
+     */
+    public function testSuccessSendJsonMessage(
+        Connector $connector,
+        string $jsonMessage,
+        array $expectedRequestParams
+    ): void {
+        $this->client->expects($this->once())->method('post')->with(...$expectedRequestParams);
+
+        $this->sender->sendJsonMessage($connector, $jsonMessage);
+    }
+
+    /**
      * @dataProvider getHandlingRequestSendJsonMessageExceptionsProvidedData
      */
     public function testHandleRequestSendJsonMessageExceptions(
