@@ -112,6 +112,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
                 'jsonMessage' => '{"text": {"name": "Joe","age":null,}}',
                 'expectedExceptionClass' => InvalidJsonMessageException::class,
             ],
+            'valid connector, json message is json string with closing bracket is wrong in object' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => '{"text": {"name": "Joe", "age": null]}',
+                'expectedExceptionClass' => InvalidJsonMessageException::class,
+            ],
         ];
     }
 }
