@@ -7,6 +7,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
@@ -68,6 +69,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
                 'connector' => new Connector(''),
                 'jsonMessage' => '{"text":"text","title":"title"}',
                 'expectedExceptionClass' => EmptyIncomingWebhookUrlException::class,
+            ],
+            'valid text, connector incoming webhook invalid url' => [
+                'connector' => new Connector('foo'),
+                'jsonMessage' => '{"text":"text","title":"title"}',
+                'expectedExceptionClass' => InvalidIncomingWebhookUrlException::class,
             ],
         ];
     }
