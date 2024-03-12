@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageDataException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
@@ -167,6 +168,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
     public function getInvalidJsonMessageProvidedData(): array
     {
         return [
+            'valid connector, json message data is empty' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => '{}',
+                'expectedExceptionClass' => EmptyMessageDataException::class,
+            ],
             'valid connector, json message is empty string' => [
                 'connector' => new Connector('https://foo.com/'),
                 'jsonMessage' => '',
