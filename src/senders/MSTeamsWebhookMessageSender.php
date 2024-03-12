@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageDataException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
@@ -105,11 +106,18 @@ class MSTeamsWebhookMessageSender implements
 
     /**
      * @throws InvalidJsonMessageException
+     * @throws EmptyMessageDataException
      */
     private function validateJsonMessage(string $jsonMessage): self
     {
-        if (!is_array(json_decode($jsonMessage, true))) {
+        $messageData = json_decode($jsonMessage, true);
+
+        if (!is_array($messageData)) {
             throw new InvalidJsonMessageException();
+        }
+
+        if (empty($messageData)) {
+            throw new EmptyMessageDataException();
         }
 
         return $this;
