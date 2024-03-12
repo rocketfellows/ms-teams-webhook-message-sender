@@ -76,4 +76,17 @@ class MSTeamsWebhookArrayMessageSenderTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider getInvalidMessageArrayProvidedData
+     */
+    public function testSendMessageFromArrayNotExecutedCauseInvalidMessageData(
+        Connector $connector,
+        array $messageData,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendMessageFromArray($connector, $messageData);
+    }
 }
