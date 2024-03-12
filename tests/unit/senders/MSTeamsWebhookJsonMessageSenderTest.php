@@ -65,6 +65,23 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
         $this->sender->sendJsonMessage($connector, $jsonMessage);
     }
 
+    public function getSuccessSendJsonMessageProvidedData(): array
+    {
+        return [
+            'json message valid, connector valid' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => '{"text":"text","title":"title"}',
+                'expectedRequestParams' => [
+                    'https://foo.com/',
+                    [
+                        'body' => '{"text":"text","title":"title"}',
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * @dataProvider getHandlingRequestSendJsonMessageExceptionsProvidedData
      */
