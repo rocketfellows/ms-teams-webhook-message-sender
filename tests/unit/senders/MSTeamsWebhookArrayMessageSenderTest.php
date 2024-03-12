@@ -11,6 +11,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncoming
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageDataException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookArrayMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
+use Throwable;
 
 /**
  * @group ms-teams-webhook-message-senders
@@ -47,6 +48,27 @@ class MSTeamsWebhookArrayMessageSenderTest extends TestCase
         foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
             $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
         }
+    }
+
+    /**
+     * @dataProvider getHandlingRequestSendMessageFromArrayExceptionsProvidedData
+     */
+    public function testHandleRequestSendMessageFromArrayExceptions(
+        Connector $connector,
+        array $messageData,
+        array $expectedRequestParams,
+        Throwable $thrownRequestSendMessageFromArrayException,
+        string $expectedExceptionClass
+    ): void {
+        $this->client
+            ->expects($this->once())
+            ->method('post')
+            ->with(...$expectedRequestParams)
+            ->willThrowException($thrownRequestSendMessageFromArrayException);
+
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendMessageFromArray($connector, $messageData);
     }
 
     /**
