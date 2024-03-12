@@ -11,6 +11,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncoming
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
+use Throwable;
 
 /**
  * @group ms-teams-webhook-message-senders
@@ -47,6 +48,27 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
         foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
             $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
         }
+    }
+
+    /**
+     * @dataProvider getHandlingRequestSendJsonMessageExceptionsProvidedData
+     */
+    public function testHandleRequestSendJsonMessageExceptions(
+        Connector $connector,
+        string $jsonMessage,
+        array $expectedRequestParams,
+        Throwable $thrownRequestSendJsonException,
+        string $expectedExceptionClass
+    ): void {
+        $this->client
+            ->expects($this->once())
+            ->method('post')
+            ->with(...$expectedRequestParams)
+            ->willThrowException($thrownRequestSendJsonException);
+
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendJsonMessage($connector, $jsonMessage);
     }
 
     /**
