@@ -61,13 +61,17 @@ class MSTeamsWebhookMessageSender implements
             );
     }
 
-    public function sendMessageFromArray(Connector $connector, array $messageData): void
-    {
+    public function sendMessageFromArray(
+        Connector $connector,
+        array $messageData
+    ): void {
         $this->sendJsonMessage($connector, json_encode($messageData));
     }
 
-    public function sendJsonMessage(Connector $connector, string $jsonMessage): void
-    {
+    public function sendJsonMessage(
+        Connector $connector,
+        string $jsonMessage
+    ): void {
         $this
             ->validateConnector($connector)
             ->validateJsonMessage($jsonMessage)
