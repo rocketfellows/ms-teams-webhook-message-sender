@@ -60,10 +60,10 @@ class MSTeamsWebhookMessageSender implements
 
     public function sendJsonMessage(Connector $connector, string $jsonMessage): void
     {
-        // TODO: Implement sendJsonMessage() method.
         $this
             ->validateConnector($connector)
-            ->validateJsonMessage($jsonMessage);
+            ->validateJsonMessage($jsonMessage)
+            ->requestSendMessage($connector, $jsonMessage);
     }
 
     /**
