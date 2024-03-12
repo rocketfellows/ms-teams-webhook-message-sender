@@ -60,6 +60,11 @@ class MSTeamsWebhookMessageSender implements
             );
     }
 
+    public function sendMessageFromArray(Connector $connector, array $messageData): void
+    {
+        // TODO: Implement sendMessageFromArray() method.
+    }
+
     public function sendJsonMessage(Connector $connector, string $jsonMessage): void
     {
         $this
