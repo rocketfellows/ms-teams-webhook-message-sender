@@ -8,6 +8,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
@@ -86,6 +87,18 @@ class MSTeamsWebhookMessageSender implements
     {
         if (empty($message->getText())) {
             throw new EmptyMessageException();
+        }
+
+        return $this;
+    }
+
+    /**
+     * @throws InvalidJsonMessageException
+     */
+    private function validateJsonMessage(string $jsonMessage): self
+    {
+        if (!is_array(json_decode($jsonMessage, true))) {
+            throw new InvalidJsonMessageException();
         }
 
         return $this;
