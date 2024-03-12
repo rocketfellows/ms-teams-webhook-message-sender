@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use rocketfellows\MSTeamsWebhookMessageSender\configs\Connector;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\EmptyIncomingWebhookUrlException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs\InvalidIncomingWebhookUrlException;
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageDataException;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookArrayMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender;
 
@@ -93,7 +94,11 @@ class MSTeamsWebhookArrayMessageSenderTest extends TestCase
     public function getInvalidMessageArrayProvidedData(): array
     {
         return [
-            [],
+            'valid connector, message data is empty' => [
+                'connector' => new Connector('https://foo.com/'),
+                'messageData' => [],
+                'expectedExceptionClass' => EmptyMessageDataException::class,
+            ],
         ];
     }
 }
