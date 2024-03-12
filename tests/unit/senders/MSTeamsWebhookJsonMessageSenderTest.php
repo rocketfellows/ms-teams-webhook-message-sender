@@ -71,6 +71,13 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
         $this->sender->sendJsonMessage($connector, $jsonMessage);
     }
 
+    public function getHandlingRequestSendJsonMessageExceptionsProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getInvalidConnectorProvidedData
      */
