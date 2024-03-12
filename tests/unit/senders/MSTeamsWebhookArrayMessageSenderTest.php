@@ -65,6 +65,13 @@ class MSTeamsWebhookArrayMessageSenderTest extends TestCase
         $this->sender->sendMessageFromArray($connector, $messageData);
     }
 
+    public function getSuccessSendMessageFromArrayProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getHandlingRequestSendMessageFromArrayExceptionsProvidedData
      */
