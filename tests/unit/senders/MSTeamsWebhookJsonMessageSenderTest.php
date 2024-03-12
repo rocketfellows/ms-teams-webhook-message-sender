@@ -48,6 +48,19 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
     }
 
     /**
+     * @dataProvider getInvalidConnectorProvidedData
+     */
+    public function testSendJsonMessageNotExecutedCauseInvalidConnector(
+        Connector $connector,
+        string $text,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->sender->sendJsonMessage($connector, $text);
+    }
+
+    /**
      * @dataProvider getInvalidJsonMessageProvidedData
      */
     public function testSendJsonMessageNotExecutedCauseInvalidJsonMessage(
