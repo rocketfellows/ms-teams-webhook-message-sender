@@ -36,4 +36,11 @@ class MSTeamsWebhookArrayMessageSenderTest extends TestCase
             $this->client
         );
     }
+
+    public function testSenderImplementsInterfaces(): void
+    {
+        foreach (self::EXPECTED_IMPLEMENTED_INTERFACES as $expectedImplementedInterface) {
+            $this->assertInstanceOf($expectedImplementedInterface, $this->sender);
+        }
+    }
 }
