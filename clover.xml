@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710259176">
-  <project timestamp="1710259176">
+<coverage generated="1710260984">
+  <project timestamp="1710260984">
+    <file name="/app/src/MSTeamsWebhookArrayMessageSenderInterface.php">
+      <metrics loc="23" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/app/src/MSTeamsWebhookJsonMessageSenderInterface.php">
-      <metrics loc="21" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="23" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/MSTeamsWebhookMessageSenderInterface.php">
       <metrics loc="22" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -22,8 +25,8 @@
       <line num="19" type="stmt" count="2"/>
       <line num="20" type="stmt" count="2"/>
       <line num="21" type="stmt" count="2"/>
-      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="34"/>
-      <line num="26" type="stmt" count="34"/>
+      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="40"/>
+      <line num="26" type="stmt" count="40"/>
       <metrics loc="29" ncloc="29" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
     </file>
     <file name="/app/src/exceptions/MSTeamsWebhookMessageSenderException.php">
@@ -49,6 +52,12 @@
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/app/src/exceptions/message/EmptyMessageDataException.php">
+      <class name="rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageDataException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/exceptions/message/EmptyMessageException.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException" namespace="global">
@@ -109,58 +118,63 @@
     </file>
     <file name="/app/src/senders/MSTeamsWebhookMessageSender.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender" namespace="global">
-        <metrics complexity="13" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="48" coveredelements="48"/>
+        <metrics complexity="15" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="44" elements="53" coveredelements="53"/>
       </class>
-      <line num="32" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="33"/>
-      <line num="35" type="stmt" count="33"/>
-      <line num="38" type="method" name="sendText" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="42" type="stmt" count="5"/>
-      <line num="43" type="stmt" count="5"/>
-      <line num="44" type="stmt" count="5"/>
+      <line num="35" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="40"/>
+      <line num="38" type="stmt" count="40"/>
+      <line num="41" type="method" name="sendText" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="45" type="stmt" count="5"/>
-      <line num="48" type="method" name="sendMessage" visibility="public" complexity="1" crap="1" count="12"/>
-      <line num="52" type="stmt" count="12"/>
-      <line num="53" type="stmt" count="12"/>
-      <line num="54" type="stmt" count="12"/>
+      <line num="46" type="stmt" count="5"/>
+      <line num="47" type="stmt" count="5"/>
+      <line num="48" type="stmt" count="5"/>
+      <line num="51" type="method" name="sendMessage" visibility="public" complexity="1" crap="1" count="12"/>
       <line num="55" type="stmt" count="12"/>
       <line num="56" type="stmt" count="12"/>
       <line num="57" type="stmt" count="12"/>
       <line num="58" type="stmt" count="12"/>
-      <line num="61" type="method" name="sendJsonMessage" visibility="public" complexity="1" crap="1" count="18"/>
-      <line num="63" type="stmt" count="18"/>
-      <line num="64" type="stmt" count="18"/>
-      <line num="65" type="stmt" count="18"/>
-      <line num="66" type="stmt" count="18"/>
-      <line num="73" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="30"/>
-      <line num="75" type="stmt" count="30"/>
-      <line num="76" type="stmt" count="3"/>
-      <line num="79" type="stmt" count="27"/>
-      <line num="80" type="stmt" count="3"/>
-      <line num="83" type="stmt" count="24"/>
-      <line num="89" type="method" name="validateMessage" visibility="private" complexity="2" crap="2" count="8"/>
-      <line num="91" type="stmt" count="8"/>
-      <line num="92" type="stmt" count="2"/>
-      <line num="95" type="stmt" count="6"/>
-      <line num="101" type="method" name="validateJsonMessage" visibility="private" complexity="2" crap="2" count="16"/>
-      <line num="103" type="stmt" count="16"/>
-      <line num="104" type="stmt" count="14"/>
-      <line num="107" type="stmt" count="2"/>
-      <line num="113" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="8"/>
-      <line num="118" type="stmt" count="8"/>
-      <line num="119" type="stmt" count="8"/>
-      <line num="120" type="stmt" count="8"/>
-      <line num="121" type="stmt" count="8"/>
-      <line num="122" type="stmt" count="8"/>
-      <line num="123" type="stmt" count="8"/>
-      <line num="124" type="stmt" count="8"/>
-      <line num="125" type="stmt" count="3"/>
-      <line num="126" type="stmt" count="3"/>
-      <line num="127" type="stmt" count="3"/>
-      <line num="128" type="stmt" count="3"/>
-      <line num="129" type="stmt" count="3"/>
-      <line num="130" type="stmt" count="3"/>
-      <metrics loc="134" ncloc="121" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="48" coveredelements="48"/>
+      <line num="59" type="stmt" count="12"/>
+      <line num="60" type="stmt" count="12"/>
+      <line num="61" type="stmt" count="12"/>
+      <line num="64" type="method" name="sendMessageFromArray" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="66" type="stmt" count="5"/>
+      <line num="69" type="method" name="sendJsonMessage" visibility="public" complexity="1" crap="1" count="24"/>
+      <line num="71" type="stmt" count="24"/>
+      <line num="72" type="stmt" count="24"/>
+      <line num="73" type="stmt" count="24"/>
+      <line num="74" type="stmt" count="24"/>
+      <line num="81" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="36"/>
+      <line num="83" type="stmt" count="36"/>
+      <line num="84" type="stmt" count="4"/>
+      <line num="87" type="stmt" count="32"/>
+      <line num="88" type="stmt" count="4"/>
+      <line num="91" type="stmt" count="28"/>
+      <line num="97" type="method" name="validateMessage" visibility="private" complexity="2" crap="2" count="8"/>
+      <line num="99" type="stmt" count="8"/>
+      <line num="100" type="stmt" count="2"/>
+      <line num="103" type="stmt" count="6"/>
+      <line num="110" type="method" name="validateJsonMessage" visibility="private" complexity="3" crap="3" count="20"/>
+      <line num="112" type="stmt" count="20"/>
+      <line num="114" type="stmt" count="20"/>
+      <line num="115" type="stmt" count="14"/>
+      <line num="118" type="stmt" count="6"/>
+      <line num="119" type="stmt" count="2"/>
+      <line num="122" type="stmt" count="4"/>
+      <line num="128" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="10"/>
+      <line num="133" type="stmt" count="10"/>
+      <line num="134" type="stmt" count="10"/>
+      <line num="135" type="stmt" count="10"/>
+      <line num="136" type="stmt" count="10"/>
+      <line num="137" type="stmt" count="10"/>
+      <line num="138" type="stmt" count="10"/>
+      <line num="139" type="stmt" count="10"/>
+      <line num="140" type="stmt" count="4"/>
+      <line num="141" type="stmt" count="4"/>
+      <line num="142" type="stmt" count="4"/>
+      <line num="143" type="stmt" count="4"/>
+      <line num="144" type="stmt" count="4"/>
+      <line num="145" type="stmt" count="4"/>
+      <metrics loc="149" ncloc="135" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="44" elements="53" coveredelements="53"/>
     </file>
-    <metrics files="15" loc="365" ncloc="334" classes="3" methods="17" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="62" coveredstatements="62" elements="79" coveredelements="79"/>
+    <metrics files="17" loc="413" ncloc="373" classes="3" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="66" coveredstatements="66" elements="84" coveredelements="84"/>
   </project>
 </coverage>
