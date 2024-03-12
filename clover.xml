@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710174137">
-  <project timestamp="1710174137">
+<coverage generated="1710258583">
+  <project timestamp="1710258583">
     <file name="/app/src/MSTeamsWebhookJsonMessageSenderInterface.php">
-      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="19" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/MSTeamsWebhookMessageSenderInterface.php">
       <metrics loc="22" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -22,8 +22,8 @@
       <line num="19" type="stmt" count="2"/>
       <line num="20" type="stmt" count="2"/>
       <line num="21" type="stmt" count="2"/>
-      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="16"/>
-      <line num="26" type="stmt" count="16"/>
+      <line num="24" type="method" name="getIncomingWebhookUrl" visibility="public" complexity="1" crap="1" count="32"/>
+      <line num="26" type="stmt" count="32"/>
       <metrics loc="29" ncloc="29" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
     </file>
     <file name="/app/src/exceptions/MSTeamsWebhookMessageSenderException.php">
@@ -52,6 +52,12 @@
     </file>
     <file name="/app/src/exceptions/message/EmptyMessageException.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/app/src/exceptions/message/InvalidJsonMessageException.php">
+      <class name="rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -103,49 +109,57 @@
     </file>
     <file name="/app/src/senders/MSTeamsWebhookMessageSender.php">
       <class name="rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender" namespace="global">
-        <metrics complexity="10" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="39" coveredelements="39"/>
+        <metrics complexity="13" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="38" elements="47" coveredelements="45"/>
       </class>
-      <line num="31" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="15"/>
-      <line num="34" type="stmt" count="15"/>
-      <line num="37" type="method" name="sendText" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="41" type="stmt" count="5"/>
+      <line num="32" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="31"/>
+      <line num="35" type="stmt" count="31"/>
+      <line num="38" type="method" name="sendText" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="42" type="stmt" count="5"/>
       <line num="43" type="stmt" count="5"/>
       <line num="44" type="stmt" count="5"/>
-      <line num="47" type="method" name="sendMessage" visibility="public" complexity="1" crap="1" count="12"/>
-      <line num="51" type="stmt" count="12"/>
+      <line num="45" type="stmt" count="5"/>
+      <line num="48" type="method" name="sendMessage" visibility="public" complexity="1" crap="1" count="12"/>
       <line num="52" type="stmt" count="12"/>
       <line num="53" type="stmt" count="12"/>
       <line num="54" type="stmt" count="12"/>
       <line num="55" type="stmt" count="12"/>
       <line num="56" type="stmt" count="12"/>
       <line num="57" type="stmt" count="12"/>
-      <line num="64" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="12"/>
-      <line num="66" type="stmt" count="12"/>
-      <line num="67" type="stmt" count="2"/>
-      <line num="70" type="stmt" count="10"/>
-      <line num="71" type="stmt" count="2"/>
-      <line num="74" type="stmt" count="8"/>
-      <line num="80" type="method" name="validateMessage" visibility="private" complexity="2" crap="2" count="8"/>
-      <line num="82" type="stmt" count="8"/>
-      <line num="83" type="stmt" count="2"/>
-      <line num="86" type="stmt" count="6"/>
-      <line num="92" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="6"/>
-      <line num="97" type="stmt" count="6"/>
-      <line num="98" type="stmt" count="6"/>
-      <line num="99" type="stmt" count="6"/>
-      <line num="100" type="stmt" count="6"/>
-      <line num="101" type="stmt" count="6"/>
-      <line num="102" type="stmt" count="6"/>
-      <line num="103" type="stmt" count="6"/>
-      <line num="104" type="stmt" count="2"/>
-      <line num="105" type="stmt" count="2"/>
-      <line num="106" type="stmt" count="2"/>
-      <line num="107" type="stmt" count="2"/>
-      <line num="108" type="stmt" count="2"/>
-      <line num="109" type="stmt" count="2"/>
-      <metrics loc="113" ncloc="103" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="39" coveredelements="39"/>
+      <line num="58" type="stmt" count="12"/>
+      <line num="61" type="method" name="sendJsonMessage" visibility="public" complexity="1" crap="1" count="16"/>
+      <line num="64" type="stmt" count="16"/>
+      <line num="65" type="stmt" count="16"/>
+      <line num="66" type="stmt" count="16"/>
+      <line num="73" type="method" name="validateConnector" visibility="private" complexity="3" crap="3" count="28"/>
+      <line num="75" type="stmt" count="28"/>
+      <line num="76" type="stmt" count="3"/>
+      <line num="79" type="stmt" count="25"/>
+      <line num="80" type="stmt" count="3"/>
+      <line num="83" type="stmt" count="22"/>
+      <line num="89" type="method" name="validateMessage" visibility="private" complexity="2" crap="2" count="8"/>
+      <line num="91" type="stmt" count="8"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="95" type="stmt" count="6"/>
+      <line num="101" type="method" name="validateJsonMessage" visibility="private" complexity="2" crap="2.15" count="14"/>
+      <line num="103" type="stmt" count="14"/>
+      <line num="104" type="stmt" count="14"/>
+      <line num="107" type="stmt" count="0"/>
+      <line num="113" type="method" name="requestSendMessage" visibility="private" complexity="2" crap="2" count="6"/>
+      <line num="118" type="stmt" count="6"/>
+      <line num="119" type="stmt" count="6"/>
+      <line num="120" type="stmt" count="6"/>
+      <line num="121" type="stmt" count="6"/>
+      <line num="122" type="stmt" count="6"/>
+      <line num="123" type="stmt" count="6"/>
+      <line num="124" type="stmt" count="6"/>
+      <line num="125" type="stmt" count="2"/>
+      <line num="126" type="stmt" count="2"/>
+      <line num="127" type="stmt" count="2"/>
+      <line num="128" type="stmt" count="2"/>
+      <line num="129" type="stmt" count="2"/>
+      <line num="130" type="stmt" count="2"/>
+      <metrics loc="134" ncloc="120" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="38" elements="47" coveredelements="45"/>
     </file>
-    <metrics files="14" loc="323" ncloc="301" classes="3" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="55" elements="70" coveredelements="70"/>
+    <metrics files="15" loc="363" ncloc="332" classes="3" methods="17" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="60" elements="78" coveredelements="76"/>
   </project>
 </coverage>
