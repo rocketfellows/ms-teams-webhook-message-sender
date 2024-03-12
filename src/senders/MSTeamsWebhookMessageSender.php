@@ -11,6 +11,7 @@ use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\EmptyMessageExc
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\message\InvalidJsonMessageException;
 use rocketfellows\MSTeamsWebhookMessageSender\exceptions\request\ConnectorException;
 use rocketfellows\MSTeamsWebhookMessageSender\models\Message;
+use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookArrayMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface;
 use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
@@ -18,7 +19,8 @@ use rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface;
 class MSTeamsWebhookMessageSender implements
     MSTeamsWebhookMessageSenderInterface,
     MSTeamsWebhookTextSenderInterface,
-    MSTeamsWebhookJsonMessageSenderInterface
+    MSTeamsWebhookJsonMessageSenderInterface,
+    MSTeamsWebhookArrayMessageSenderInterface
 {
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_BODY = 'body';
     private const REQUEST_SEND_MESSAGE_PARAM_NAME_HEADERS = 'headers';
