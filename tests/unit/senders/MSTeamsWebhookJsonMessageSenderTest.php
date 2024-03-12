@@ -87,6 +87,11 @@ class MSTeamsWebhookJsonMessageSenderTest extends TestCase
                 'jsonMessage' => '{"text": $1.00}',
                 'expectedExceptionClass' => InvalidJsonMessageException::class,
             ],
+            'valid connector, json message is json string with expression in number' => [
+                'connector' => new Connector('https://foo.com/'),
+                'jsonMessage' => '{"text": 99.00 * 0.15}',
+                'expectedExceptionClass' => InvalidJsonMessageException::class,
+            ],
         ];
     }
 }
