@@ -44,7 +44,9 @@ Class description:
 - `getText` - **_function_** - getter returning `text` attribute value;
 - `getTitle` - **_function_** - getter returning `title` attribute value.
 
+
 ### Interfaces.
+
 
 #### MSTeamsWebhookMessageSenderInterface.
 
@@ -82,6 +84,7 @@ Result:
 
 ![Send message without title result](/readme/src/img_0.png)
 
+
 #### MSTeamsWebhookTextSenderInterface.
 
 `rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface` - interface for sending a message via a webhook uses a value of type `Connector` as a connection, and a value of type string (message text) as a message.
@@ -107,6 +110,7 @@ $sender->sendText(Connector::create(INCOMING_WEBHOOK_URL), 'Hello world!');
 Result:
 
 ![Send text result](/readme/src/img_1.png)
+
 
 #### MSTeamsWebhookArrayMessageSenderInterface.
 
@@ -191,6 +195,7 @@ $sender->sendMessageFromArray(
 Result:
 
 ![Send message with section result](/readme/src/img_4.png)
+
 
 #### MSTeamsWebhookJsonMessageSenderInterface.
 
