@@ -30,3 +30,16 @@ Class description:
 - `incomingWebhookUrl` - **_string_** - link to a webhook (connector) for sending a message;
 - `create` - **_static function_** - static factory function that returns a value of type `Connector`;
 - `getIncomingWebhookUrl` - _**function**_ - getter that returns the value of the `incomingWebhookUrl` attribute.
+
+#### Message.
+
+`rocketfellows\MSTeamsWebhookMessageSender\models\Message` - a class that encapsulates message data to be sent via a webhook and implements the `JsonSerializable` interface.
+
+Class description:
+- `text` - _**string**_ - message text to send;
+- `title` - _**string | null**_ - message title to send;
+- `create` - **_static function_** - static factory function returning a value of type `Message`;
+- `convertToJson` - **_function_** - function, returns a representation of a `Message` type value as a json string;
+- `jsonSerialize` - **_function_** - implementation of the `JsonSerializable` interface;
+- `getText` - **_function_** - getter returning `text` attribute value;
+- `getTitle` - **_function_** - getter returning `title` attribute value.
