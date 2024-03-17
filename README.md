@@ -276,3 +276,89 @@ $sender->sendJsonMessage(
 Result:
 
 ![Send message with sections result](/readme/src/img_7.png)
+
+### Interfaces implementation.
+
+#### MSTeamsWebhookMessageSender.
+
+`rocketfellows\MSTeamsWebhookMessageSender\senders\MSTeamsWebhookMessageSender` - service for sending messages via a webhook.
+
+Sender implements the following interfaces:
+- `rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookMessageSenderInterface`;
+- `rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookTextSenderInterface`;
+- `rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookArrayMessageSenderInterface`;
+- `rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface`.
+
+GuzzleHttp `Client` is used to send a request with a message.
+
+##### Usage examples.
+
+Sending a `Message` without a title:
+
+```php
+$sender = new MSTeamsWebhookMessageSender(new \GuzzleHttp\Client());
+$sender->sendMessage(Connector::create(INCOMING_WEBHOOK_URL), Message::create('Hello world!'));
+```
+
+Result:
+
+![Sending a `Message` without a title](/readme/src/img_8.png)
+
+Sending a `Message` with a title:
+
+```php
+$sender = new MSTeamsWebhookMessageSender(new \GuzzleHttp\Client());
+$sender->sendMessage(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    Message::create('Hello world!', 'Hello!')
+);
+```
+
+Result:
+
+![Sending a `Message` with a title](/readme/src/img_9.png)
+
+Sending a message as a string:
+
+```php
+$sender = new MSTeamsWebhookMessageSender(new \GuzzleHttp\Client());
+$sender->sendText(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    'Hello world!'
+);
+```
+
+Result:
+
+![Sending a message as a string](/readme/src/img_10.png)
+
+Sending a message as an array:
+
+```php
+$sender = new MSTeamsWebhookMessageSender(new \GuzzleHttp\Client());
+$sender->sendMessageFromArray(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    [
+	    'title' => 'Message title',
+        'text' => 'Hello world!',
+    ]
+);
+```
+
+Result:
+
+![Sending a message as an array string](/readme/src/img_11.png)
+
+Sending a message as a json string:
+
+```php
+$sender = new MSTeamsWebhookMessageSender(new \GuzzleHttp\Client());
+$sender->sendJsonMessage(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    '{"title": "Message title", "text": "Hello world!"}'
+);
+```
+
+Result:
+
+![Sending a message as a json string result](/readme/src/img_12.png)
