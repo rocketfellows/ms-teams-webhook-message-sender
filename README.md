@@ -1,4 +1,4 @@
-# Microsoft Teams webhook message sender
+# Microsoft Teams webhook message sender.
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 ![PHPStan Badge](https://img.shields.io/badge/PHPStan-level%205-brightgreen.svg?style=flat)
@@ -17,3 +17,16 @@ composer require rocketfellows/ms-teams-webhook-message-sender
 
 Current implementation dependencies:
 - guzzle client - https://github.com/guzzle/guzzle - using for http request to webhook.
+
+## MS Teams webhook message sender description.
+
+### Basic package types.
+
+#### Connector.
+
+`rocketfellows\MSTeamsWebhookMessageSender\configs\Connector` - a class that encapsulates the connection data for sending a message.
+
+Class description:
+- `incomingWebhookUrl` - **_string_** - link to a webhook (connector) for sending a message;
+- `create` - **_static function_** - static factory function that returns a value of type `Connector`;
+- `getIncomingWebhookUrl` - _**function**_ - getter that returns the value of the `incomingWebhookUrl` attribute.
