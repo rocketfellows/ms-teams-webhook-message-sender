@@ -24,7 +24,7 @@ Current implementation dependencies:
 
 #### Connector.
 
-`rocketfellows\MSTeamsWebhookMessageSender\configs\Connector` - a class that encapsulates the connection data for sending a message.
+`rocketfellows\MSTeamsWebhookMessageSender\configs\Connector` - a class that encapsulates the connection configuration for sending a message.
 
 Class description:
 - `incomingWebhookUrl` - **_string_** - link to a webhook (connector) for sending a message;
