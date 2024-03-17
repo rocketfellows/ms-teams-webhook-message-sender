@@ -63,17 +63,21 @@ Interface exceptions:
 ##### Usage examples.
 
 Send message with title:
+
 ```php
 $sender->sendMessage(Connector::create(INCOMING_WEBHOOK_URL), Message::create('Hello world!', 'Hello!'));
 ```
 
 Result:
-![/readme/src/img.png](/readme/src/img.png)
+
+![Send message with title result](/readme/src/img.png)
 
 Send message without title:
+
 ```php
 $sender->sendMessage(Connector::create(INCOMING_WEBHOOK_URL), Message::create('Hello world!'));
 ```
 
 Result:
-![/readme/src/img_0.png](/readme/src/img_0.png)
+
+![Send message without title result](/readme/src/img_0.png)
