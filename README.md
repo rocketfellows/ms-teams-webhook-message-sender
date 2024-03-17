@@ -362,3 +362,9 @@ $sender->sendJsonMessage(
 Result:
 
 ![Sending a message as a json string result](/readme/src/img_12.png)
+
+## Contributing.
+
+Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
+
+Please make sure to update tests as appropriate.
