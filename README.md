@@ -12,3 +12,8 @@ For more information about sending messages to MS Teams channels using web hooks
 ```shell
 composer require rocketfellows/ms-teams-webhook-message-sender
 ```
+
+## Dependencies.
+
+Current implementation dependencies:
+- guzzle client - https://github.com/guzzle/guzzle - using for http request to webhook.
