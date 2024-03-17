@@ -68,7 +68,7 @@ $sender->sendMessage(Connector::create(INCOMING_WEBHOOK_URL), Message::create('H
 ```
 
 Result:
-![readme/src/img.png](img.png)
+![./readme/src/img.png](img.png)
 
 Send message without title:
 ```php
