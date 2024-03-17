@@ -108,3 +108,86 @@ Result:
 
 ![Send text result](/readme/src/img_1.png)
 
+#### MSTeamsWebhookArrayMessageSenderInterface.
+
+`rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookArrayMessageSenderInterface` - interface for sending a message via a webhook uses a `Connector` type value as a connection, and an array type value as a message.
+
+```php
+public function sendMessageFromArray(Connector $connector, array $messageData): void;
+```
+
+Interface exceptions:
+- `EmptyIncomingWebhookUrlException` - thrown if the link to the webhook is an empty string.
+- `InvalidIncomingWebhookUrlException` - thrown if the link to the webhook is not valid (for example, the link is not an url).
+- `EmptyMessageDataException` - thrown if the array with message data is empty.
+- `ConnectorException` - thrown if an error occurred when sending a message (for example, if the HTTP response code is not 200).
+
+##### Usage examples.
+
+Send message with title:
+
+```php
+$sender->sendMessageFromArray(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    [
+        'text' => 'Hello world!',
+        'title' => 'Hello!',
+    ]
+);
+```
+
+Result:
+
+![Send message with title result](/readme/src/img_2.png)
+
+Send message without title:
+
+```php
+$sender->sendMessageFromArray(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    [
+        'text' => 'Hello world!',
+    ]
+);
+```
+
+Result:
+
+![Send message without title result](/readme/src/img_3.png)
+
+Send message with section:
+
+```php
+$sender->sendMessageFromArray(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    [
+        'text' => 'Hello world!',
+        'sections' => [
+            [
+                "activityTitle" => "Larry Bryant created a new task",
+                "activitySubtitle" => "On Project Tango",
+                "activityImage" => "https://adaptivecards.io/content/cats/3.png",
+                "facts" => [
+                    [
+                        "name" => "Assigned to",
+                        "value" => "Unassigned",
+                    ],
+                    [
+                        "name" => "Due date",
+                        "value" => "Mon May 01 2017 17:07:18 GMT-0700 (Pacific Daylight Time)"
+                    ],
+                    [
+                        "name" => "Status",
+                        "value" => "Not started"
+                    ]
+                ],
+                "markdown" => true,
+            ]
+        ],
+    ]
+);
+```
+
+Result:
+
+![Send message with section result](/readme/src/img_4.png)
