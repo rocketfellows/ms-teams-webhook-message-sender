@@ -1,0 +1,9 @@
+<?php
+
+namespace rocketfellows\MSTeamsWebhookMessageSender\exceptions\configs;
+
+use rocketfellows\MSTeamsWebhookMessageSender\exceptions\MSTeamsWebhookMessageSenderException;
+
+abstract class MSTeamsWebhookConnectorException extends MSTeamsWebhookMessageSenderException
+{
+}
