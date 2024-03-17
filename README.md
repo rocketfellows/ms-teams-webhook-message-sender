@@ -191,3 +191,83 @@ $sender->sendMessageFromArray(
 Result:
 
 ![Send message with section result](/readme/src/img_4.png)
+
+#### MSTeamsWebhookJsonMessageSenderInterface.
+
+`rocketfellows\MSTeamsWebhookMessageSender\MSTeamsWebhookJsonMessageSenderInterface` - interface for sending a message via a webhook uses a value of type `Connector` as a connection, and a value of type string (a json string with message data) as a message.
+
+```php
+public function sendJsonMessage(Connector $connector, string $jsonMessage): void;
+```
+
+Interface exceptions:
+- `EmptyIncomingWebhookUrlException` - thrown if the link to the webhook is an empty string.
+- `InvalidIncomingWebhookUrlException` - thrown if the link to the webhook is not valid (for example, the link is not an url).
+- `EmptyMessageDataException` - thrown if the array with message data is empty.
+- `InvalidJsonMessageException` - thrown if the json string with the message data is not valid (not valid from the point of view of the json format).
+- `ConnectorException` - thrown if an error occurred when sending a message (for example, if the HTTP response code is not 200).
+
+##### Usage examples.
+
+Send message with title:
+
+```php
+$sender->sendJsonMessage(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    '{"text": "Hello world!", "title": "Hello!"}'
+);
+```
+
+Result:
+
+![Send message with title result](/readme/src/img_5.png)
+
+Send message without title:
+
+```php
+$sender->sendJsonMessage(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    '{"text": "Hello world!"}'
+);
+```
+
+Result:
+
+![Send message without title result](/readme/src/img_6.png)
+
+Send message with sections:
+
+```php
+$sender->sendJsonMessage(
+    Connector::create(INCOMING_WEBHOOK_URL),
+    '{
+        "text": "Hello world!",
+        "sections": [
+            {
+                "activityTitle": "Larry Bryant created a new task",
+                "activitySubtitle": "On Project Tango",
+                "activityImage": "https://adaptivecards.io/content/cats/3.png",
+                "facts": [
+                    {
+                        "name": "Assigned to",
+                        "value": "Unassigned"
+                    },
+                    {
+                        "name": "Due date",
+                        "value": "Mon May 01 2017 17:07:18 GMT-0700 (Pacific Daylight Time)"
+                    },
+                    {
+                        "name": "Status",
+                        "value": "Not started"
+                    }
+                ],
+                "markdown": true
+            }
+        ]
+    }'
+);
+```
+
+Result:
+
+![Send message with sections result](/readme/src/img_7.png)
