@@ -1,3 +1,3 @@
-# Simple component template
+# Microsoft Teams webhook message sender
 
 ![Code Coverage Badge](./badge.svg)
