@@ -60,9 +60,7 @@ Interface exceptions:
 - `EmptyMessageException` - thrown if the message text is an empty string.
 - `ConnectorException` - thrown if an error occurred when sending a message (for example, if the HTTP response code is not 200).
 
-##### Usage examples
-
-Client code
+##### Usage examples.
 
 Send message with title:
 ```php
